@@ -1,9 +1,24 @@
+using CapstoneBlazorServerSite.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddDbContext<DataContext>(
+                options => options
+                .UseMySql(
+                    builder.Configuration
+                    ["ConnectionStrings:DefaultConnection"],
+                    ServerVersion.AutoDetect(builder.Configuration
+                    ["ConnectionStrings:DefaultConnection"]
+                    )
+                )
+            );
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<DataContext>();
 
 var app = builder.Build();
 
@@ -18,6 +33,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
