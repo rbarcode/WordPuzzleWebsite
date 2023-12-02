@@ -1,3 +1,7 @@
+### Project Overview  
+An ASP.NET Blazor server-side-based website for an untitled word puzzle game that lets users play the game whether they are signed in or not. But authenticated users can view leader boards and track their own stats. Capstone project to focus on the website functionality (i.e. authentication and leaderboards) and NOT the game itself.
+
+
 ### Research & Planning Log
 
 #### Friday 12/1
