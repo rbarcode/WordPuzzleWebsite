@@ -17,7 +17,15 @@ builder.Services.AddDbContext<DataContext>(
                     )
                 )
             );
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<IdentityUser, IdentityRole>( options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequireNonAlphanumeric = false;
+    options.SignIn.RequireConfirmedEmail = false;
+})
                 .AddEntityFrameworkStores<DataContext>();
 
 var app = builder.Build();

@@ -1,3 +1,11 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+    <Authorized>
+        <h1>Hello, world!</h1>
+    </Authorized>
+    <NotAuthorized>
+        <h1>Please Register for an Account</h1>
+    </NotAuthorized>
+</Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+
