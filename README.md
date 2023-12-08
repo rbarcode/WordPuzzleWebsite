@@ -34,4 +34,6 @@ https://www.youtube.com/watch?v=aM54Gjn5lIA
 
 * 11:00: Start designing UI layout for leaderboard page using Affine.  
 
-* 12:00: Break for lunch.
+* 12:00: Break for lunch.  
+
+* 1:00: Start implementing EF Core database logic in project.
