@@ -25,4 +25,9 @@ https://www.youtube.com/watch?v=LBByZRhyZ8U
 
 * 9:30: Continue researching charts in Blazor, including watching some tutorials.  
 https://www.youtube.com/watch?v=z6AHBFGzqQ0  
-https://www.youtube.com/watch?v=08lN-o7rQgg&list=PLSIKM6F-xklKZwzRvvJgbVUfZsPIDB9-6
+https://www.youtube.com/watch?v=08lN-o7rQgg&list=PLSIKM6F-xklKZwzRvvJgbVUfZsPIDB9-6  
+
+* 10:15: Start reading MudBlazor documentation and continue researching charts in Blazor (and watch more tutorials).  
+https://mudblazor.com/docs/overview  
+https://mudblazor.com/components/barchart#custom-svg-content  
+https://www.youtube.com/watch?v=aM54Gjn5lIA
