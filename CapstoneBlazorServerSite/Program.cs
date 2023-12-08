@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using CapstoneBlazorServerSite.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
@@ -17,7 +18,7 @@ builder.Services.AddDbContext<DataContext>(
                     )
                 )
             );
-builder.Services.AddIdentity<IdentityUser, IdentityRole>( options =>
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>( options =>
 {
     options.Password.RequireDigit = false;
     options.Password.RequireLowercase = false;
