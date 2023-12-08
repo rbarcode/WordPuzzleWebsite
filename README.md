@@ -32,4 +32,6 @@ https://mudblazor.com/docs/overview
 https://mudblazor.com/components/barchart#custom-svg-content  
 https://www.youtube.com/watch?v=aM54Gjn5lIA  
 
-* 11:00: Start designing UI layout for leaderboard page using Affine.
+* 11:00: Start designing UI layout for leaderboard page using Affine.  
+
+* 12:00: Break for lunch.
