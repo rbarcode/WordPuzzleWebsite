@@ -19,4 +19,6 @@ https://www.youtube.com/watch?v=LBByZRhyZ8U
 
 
 #### Friday 12/8  
-* 8:05: Start researching leaderboard database/table architecture.
+* 8:05: Start researching leaderboard database/table architecture.  
+
+* 8:45: Start researching charts in Blazor.
