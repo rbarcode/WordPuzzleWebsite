@@ -3,6 +3,7 @@ using System;
 using CapstoneBlazorServerSite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CapstoneBlazorServerSite.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231208221056_AddCareerStatsTable")]
+    partial class AddCareerStatsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,7 +88,7 @@ namespace CapstoneBlazorServerSite.Migrations
 
             modelBuilder.Entity("CapstoneBlazorServerSite.Models.CareerStats", b =>
                 {
-                    b.Property<string>("PlayerId")
+                    b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
                     b.Property<uint>("CareerMinutesPlayed")
@@ -106,11 +109,15 @@ namespace CapstoneBlazorServerSite.Migrations
                     b.Property<uint>("HighScore")
                         .HasColumnType("int unsigned");
 
+                    b.Property<string>("PlayerId")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("PlayerName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("PlayerId");
+                    b.HasKey("Id");
 
                     b.ToTable("CareerStats");
                 });

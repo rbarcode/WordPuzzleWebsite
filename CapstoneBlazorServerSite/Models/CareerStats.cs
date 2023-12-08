@@ -1,33 +1,36 @@
-﻿namespace CapstoneBlazorServerSite.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CapstoneBlazorServerSite.Models
 {
     public class CareerStats
     {
-        public int CareerStatsId { get; set; }
-
+        [Key]
         public string PlayerId { get; set; }
 
-        public ApplicationUser Player { get; }
+        public string PlayerName { get; set; }
+
+        public uint HighScore { get; set; }
 
         public uint CareerScore { get; set; }
 
         public uint CareerMinutesPlayed { get; set; }
 
-        private float _pointsPerMinute;
+        private float _careerPointsPerMinute;
+
+        public float CareerPointsPerMinute
+        {
+            get => _careerPointsPerMinute;
+            set => _careerPointsPerMinute = (CareerScore / CareerMinutesPlayed);
+        }
 
         public uint CareerNumberOfWords { get; set; }
 
-        private float _pointsPerWord;
+        private float _careerPointsPerWord;
 
-        public float PointsPerMinute
+        public float CareerPointsPerWord
         {
-            get => _pointsPerMinute;
-            set => _pointsPerMinute = (CareerScore / CareerMinutesPlayed);
-        }
-
-        public float PointsPerWord
-        {
-            get => _pointsPerWord;
-            set => _pointsPerWord = (CareerScore / CareerNumberOfWords);
+            get => _careerPointsPerWord;
+            set => _careerPointsPerWord = (CareerScore / CareerNumberOfWords);
         }
     }
 }
