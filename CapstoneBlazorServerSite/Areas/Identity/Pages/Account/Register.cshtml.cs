@@ -41,6 +41,7 @@ namespace CapstoneBlazorServerSite.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _db.CareerStats.Add(new CareerStats { PlayerName = Input.Name, PlayerId = identity.Id });
+                    _db.SaveChanges();
                     await _signInManager.SignInAsync(identity, isPersistent: false);
                     return LocalRedirect(ReturnUrl);
                 }
