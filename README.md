@@ -16,3 +16,7 @@ https://github.com/dotnet/blazor-samples
 https://www.youtube.com/watch?v=LBByZRhyZ8U  
 
 * 1:00: Return from lunch and start working on adding authentication to Blazor Server app.
+
+
+#### Friday 12/8  
+* 8:05: Start researching leaderboard database/table architecture.
