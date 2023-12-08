@@ -30,4 +30,6 @@ https://www.youtube.com/watch?v=08lN-o7rQgg&list=PLSIKM6F-xklKZwzRvvJgbVUfZsPIDB
 * 10:15: Start reading MudBlazor documentation and continue researching charts in Blazor (and watch more tutorials).  
 https://mudblazor.com/docs/overview  
 https://mudblazor.com/components/barchart#custom-svg-content  
-https://www.youtube.com/watch?v=aM54Gjn5lIA
+https://www.youtube.com/watch?v=aM54Gjn5lIA  
+
+* 11:00: Start designing UI layout for leaderboard page using Affine.
