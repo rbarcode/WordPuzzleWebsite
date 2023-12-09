@@ -13,11 +13,11 @@ namespace CapstoneBlazorServerSite.Models
 
         public uint CareerScore { get; set; }
 
-        public uint CareerMinutesPlayed { get; set; }
+        public double CareerMinutesPlayed { get; set; }
 
-        private float _careerPointsPerMinute;
+        private double _careerPointsPerMinute;
 
-        public float CareerPointsPerMinute
+        public double CareerPointsPerMinute
         {
             get => _careerPointsPerMinute;
             set => _careerPointsPerMinute = (CareerScore / CareerMinutesPlayed);
@@ -25,9 +25,9 @@ namespace CapstoneBlazorServerSite.Models
 
         public uint CareerNumberOfWords { get; set; }
 
-        private float _careerPointsPerWord;
+        private double _careerPointsPerWord;
 
-        public float CareerPointsPerWord
+        public double CareerPointsPerWord
         {
             get => _careerPointsPerWord;
             set => _careerPointsPerWord = (CareerScore / CareerNumberOfWords);
