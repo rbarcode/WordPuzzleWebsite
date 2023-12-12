@@ -4,6 +4,6 @@ namespace CapstoneBlazorServerSite.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        //public CareerStats? CareerStats { get; set; }
+        
     }
 }

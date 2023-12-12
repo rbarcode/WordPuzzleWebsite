@@ -1,0 +1,89 @@
+﻿.component-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.component-title {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    background-color: #592c84;
+    font-size: 2em;
+    color: lightgray;
+}
+
+.column-chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    height: 42.5%;
+    border-bottom: solid 1px white;
+}
+
+.bar-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 90%;
+}
+
+    .bar-chart > div {
+        width: 8%;
+        background-color: white;
+    }
+
+.bar-chart-legend {
+    color: lightgray;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rankings-container {
+    color: lightgray;
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    height: 42.5%;
+    overflow-y: auto;
+}
+
+.rank-number, .player-name, .player-score {
+    display: flex;
+    flex-direction: column;
+}
+
+.rank-number {
+    width: 4%;
+}
+
+    .rank-number > div {
+        border-bottom: dashed 1px white;
+    }
+
+.player-name {
+    width: 48%;
+}
+
+    .player-name > div {
+        border-bottom: dashed 1px white;
+    }
+
+.player-score {
+    width: 48%;
+}
+
+    .player-score > div {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 2%;
+        border-bottom: dashed 1px white;
+    }

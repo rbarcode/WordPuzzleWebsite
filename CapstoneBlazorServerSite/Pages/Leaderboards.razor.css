@@ -1,0 +1,42 @@
+﻿body {
+    background-color: black;
+}
+
+.sub-header-viewport-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 600px;
+    aspect-ratio: 16 / 9;
+
+    /*Border for development purposes only*/
+    border: solid 1px orange;
+}
+
+.leaderboards-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+}
+
+.stats-and-rankings {
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-content: center;
+}
+
+    .stats-and-rankings > * {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /*Border for development purposes only*/
+        border: solid 1px pink;
+    }

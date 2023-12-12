@@ -1,0 +1,56 @@
+﻿
+
+    <div class="component-container">
+      <div class="component-title">@Title</div>
+      <div class="column-chart-container">
+        <div class="bar-chart">
+            @for (sbyte i = 0; i < FrequencyHistogramData.Count; i++)
+            {
+                if (UserInterval == i)
+                {
+                    <div style="height: @(FrequencyHistogramData[i])%; background-color: #ffaa1c"></div>
+                }
+                else
+                {
+                    <div style="height: @(FrequencyHistogramData[i])%;"></div>
+                }
+            }
+        </div>
+        <div class="bar-chart-legend">
+          <div>Lowest Scores</div>
+          <div>Leaderboard Position</div>
+          <div>Highest Scores</div>
+          </div>
+        </div>
+        <div class="rankings-container">
+          <div class="rank-number">
+            @for (int i = 1; i <= PlayerNames.Count; i++)
+            {
+                <div>@i.</div>
+            }
+        </div>
+          <div class="player-name">
+            @foreach (string name in PlayerNames)
+            {
+                <div>@name</div>
+            }
+          </div>
+          <div class="player-score">
+            @if (IsHighScore)
+            {
+                @foreach (uint score in PlayerHighScores)
+                {
+                    <div>@score</div>
+                }
+            }
+            else
+            {
+                @foreach (double score in PlayerPointsPerMetric)
+                {
+                    <div>@score.ToString("#.##")</div>
+                }
+            }
+            
+          </div>
+        </div>
+      </div>
