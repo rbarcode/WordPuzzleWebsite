@@ -116,13 +116,15 @@ namespace CapstoneBlazorServerSite.Pages
         {
             List<byte> result = new();
             List<uint> dataset = hs;
-            double interval = maxScore / 10;
+            double numOfColumns = 10;
+            double interval = maxScore / numOfColumns;
             double intervalMaxScore = maxScore;
+
             for (int i = 0; i < 10; i++)
             {
-                var intervalCount = dataset.Count(data => data <= intervalMaxScore && data > (intervalMaxScore - interval));
-                int normalizedIntervalCount = (intervalCount / dataset.Count) * 100;
-                result.Add((byte)normalizedIntervalCount);
+                double intervalCount = dataset.Count(data => data <= intervalMaxScore && data > (intervalMaxScore - interval));               
+                byte normalizedIntervalCount = (byte)((intervalCount / (double)dataset.Count) * 100);               
+                result.Add(normalizedIntervalCount);
                 intervalMaxScore -= interval;
             }
             result.Reverse();
