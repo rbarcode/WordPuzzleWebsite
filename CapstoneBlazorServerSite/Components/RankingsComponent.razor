@@ -8,21 +8,28 @@
             {
                 if (UserInterval == i)
                 {
-                    @* Console.WriteLine("The UserInterval is: " + i);
-                    Console.WriteLine(FrequencyHistogramData[i]); *@
                     <div style="height: @(FrequencyHistogramData[i])%; background-color: #ffaa1c"></div>
                 }
                 else
                 {
-                    @* Console.WriteLine(FrequencyHistogramData[i]); *@
                     <div style="height: @(FrequencyHistogramData[i])%;"></div>
                 }
             }
         </div>
         <div class="bar-chart-legend">
-          <div>Lowest Scores</div>
-          <div>Leaderboard Position</div>
-          <div>Highest Scores</div>
+            @if (IsHighScore)
+            {
+                <div>Min: @MinScoreHS</div>
+                <div>Total Score Distribution (in 10ths)</div>
+                <div>Max: @MaxScoreHS</div>
+            }
+            else
+            {
+                <div>Min: @MinScorePPX.ToString("F2")</div>
+                <div>Total Score Distribution (in 10ths)</div>
+                <div>Max: @MaxScorePPX.ToString("F2")</div>
+            }
+            
           </div>
         </div>
         <div class="rankings-container">
@@ -50,7 +57,7 @@
             {
                 @foreach (double score in PlayerPointsPerMetric)
                 {
-                    <div>@score.ToString("#.##")</div>
+                    <div>@score.ToString("F2")</div>
                 }
             }
             

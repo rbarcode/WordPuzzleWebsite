@@ -41,7 +41,8 @@
     }
 
 .bar-chart-legend {
-    color: lightgray;
+    color: #4169e1;
+    font-weight: bold;
     width: 98%;
     display: flex;
     justify-content: space-between;

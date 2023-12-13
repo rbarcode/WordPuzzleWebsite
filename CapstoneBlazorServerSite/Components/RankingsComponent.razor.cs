@@ -37,5 +37,17 @@ namespace CapstoneBlazorServerSite.Components
         [Parameter]
         public sbyte UserInterval { get; set; }
 
+        [Parameter]
+        public uint MinScoreHS { get; set; }
+
+        [Parameter]
+        public uint MaxScoreHS { get; set; }
+
+        [Parameter]
+        public double MinScorePPX { get; set; }
+
+        [Parameter]
+        public double MaxScorePPX { get; set; }
+
     }
 }
