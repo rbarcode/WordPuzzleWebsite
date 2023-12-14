@@ -9,10 +9,13 @@ namespace CapstoneBlazorServerSite.Areas.Identity.Pages.Account
     public class LoginModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
+
         }
 
         [BindProperty]
@@ -30,8 +33,17 @@ namespace CapstoneBlazorServerSite.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, false, lockoutOnFailure: false);
-                if (result.Succeeded) return LocalRedirect(ReturnUrl);
+                ApplicationUser? user = await _userManager.FindByEmailAsync(Input.Email);
+                if (user == null)
+                {
+                    return Page();
+                }
+                else
+                {
+                    var result = await _signInManager.PasswordSignInAsync(user.UserName, Input.Password, isPersistent: false, lockoutOnFailure: false);
+                    if (result.Succeeded) return LocalRedirect(ReturnUrl);
+                }
+                
             }
             return Page();
         }

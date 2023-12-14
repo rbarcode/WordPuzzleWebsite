@@ -1,5 +1,11 @@
 ﻿body {
     background-color: black;
+    color: white;
+}
+
+.sub-header-viewport-flex-container {
+    display: flex;
+    justify-content: center;
 }
 
 .sub-header-viewport-container {
@@ -7,10 +13,13 @@
     flex-direction: column;
     width: 100vw;
     min-height: 600px;
+    max-height: 1200px;
+    min-width: 1067px;
+    max-width: 2134px;
     aspect-ratio: 16 / 9;
 
     /*Border for development purposes only*/
-    border: solid 1px orange;
+    /*border: solid 1px orange;*/
 }
 
 .leaderboards-title {
@@ -37,6 +46,73 @@
         justify-content: center;
         align-items: center;
 
-        /*Border for development purposes only*/
-        /*border: solid 1px pink;*/
     }
+
+.player-stats-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+}
+
+.player-name {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 75px;
+    font-size: 3em;
+    font-weight: bold;
+    color: #5fb337;
+}
+
+.scores-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 475px;
+    height: 225px;
+    align-self: center;
+    font-size: 2em;
+
+}
+
+.score-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 55%;
+    height: 100%;
+    padding-left: 2%;
+    color: lightgray;
+}
+
+.score-values {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 45%;
+    height: 100%;
+    color: #ffaa1c;
+    text-align: right;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-self: center;
+    width: 550px;
+    height: 35px;
+    color: #4169e1;
+    font-weight: bold;
+}
+
+.legend-example-column {
+    background-color: #ffaa1c;
+    width: 12px;
+    height: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 4px;
+}

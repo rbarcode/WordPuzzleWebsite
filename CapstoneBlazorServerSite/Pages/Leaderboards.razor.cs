@@ -1,6 +1,7 @@
 ﻿using CapstoneBlazorServerSite.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components;
+using System.Security.Claims;
 
 namespace CapstoneBlazorServerSite.Pages
 {
@@ -19,7 +20,7 @@ namespace CapstoneBlazorServerSite.Pages
 
         public double UserPointsPerMinute { get; set; }
 
-        //public sbyte UserInterval { get; set; }
+        public string UserName { get; set; }
 
         public List<string> PlayerNamesHS { get; set; }
 
@@ -97,6 +98,8 @@ namespace CapstoneBlazorServerSite.Pages
 
             string userId = GetUserId().Result;
 
+            UserName = GetUserName().Result;
+
             UserHighScore = DataContext.CareerStats.Where(cs => cs.PlayerId == userId)
                                             .Select(cs => cs.HighScore)
                                             .FirstOrDefault();
@@ -133,6 +136,13 @@ namespace CapstoneBlazorServerSite.Pages
             var user = (await AuthenticationStateTask).User;
             var userId = user.FindFirst(u => u.Type.Contains("nameidentifier"))?.Value;
             return userId;
+        }
+
+        private async Task<string> GetUserName()
+        {
+            var user = (await AuthenticationStateTask).User;
+            var userName = user.FindFirstValue(ClaimTypes.Name);
+            return userName;
         }
 
         //Determines frequency of scores that fall in each of the 10 intervals between the max score and 1
