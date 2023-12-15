@@ -40,4 +40,7 @@ https://www.youtube.com/watch?v=aM54Gjn5lIA
 
 #### Friday 12/15  
 * 8:05: Start watching tutorial on UI design for login page.  
-https://www.youtube.com/watch?v=mefhyo7W3nk
+https://www.youtube.com/watch?v=mefhyo7W3nk  
+
+* 8:40: Continue watching tutorial on UI design.  
+
