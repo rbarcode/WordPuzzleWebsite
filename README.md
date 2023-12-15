@@ -1,5 +1,5 @@
 ### Project Overview  
-An ASP.NET Blazor server-side-based website for an untitled word puzzle game that lets users play the game whether they are signed in or not. But authenticated users can view leader boards and track their own stats. Capstone project to focus on the website functionality (i.e. authentication and leaderboards) and NOT the game itself.
+An ASP.NET Blazor server-side-based website for an untitled word puzzle game that lets users play the game whether they are signed in or not. But only authenticated users can view leaderboards and their own stats. Capstone project to focus on the website functionality (i.e. authentication and leaderboards) and NOT the game itself.
 
 
 ### Research & Planning Log
@@ -36,4 +36,8 @@ https://www.youtube.com/watch?v=aM54Gjn5lIA
 
 * 12:00: Break for lunch.  
 
-* 1:00: Start implementing EF Core database logic in project.
+* 1:00: Start implementing EF Core database logic in project.  
+
+#### Friday 12/15  
+* 8:05: Start watching tutorial on UI design for login page.  
+https://www.youtube.com/watch?v=mefhyo7W3nk
