@@ -17,9 +17,6 @@
     min-width: 1067px;
     max-width: 2134px;
     aspect-ratio: 16 / 9;
-
-    /*Border for development purposes only*/
-    /*border: solid 1px orange;*/
 }
 
 .leaderboards-title {

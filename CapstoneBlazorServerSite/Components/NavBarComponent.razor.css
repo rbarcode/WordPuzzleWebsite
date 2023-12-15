@@ -1,0 +1,72 @@
+﻿.header {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 1067px;
+    height: 2.75rem;
+    padding: .5rem;
+    background-color: rgb(45, 45, 45);
+    display: flex;
+    z-index: 100;
+}
+
+    .header::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        min-width: 1067px;
+        height: 2.75rem;
+        background: linear-gradient(90deg, transparent, rgb(255, 255, 255, .4), transparent);
+        transition: .35s;
+    }
+
+    .header:hover::after {
+        left: 100%;
+    }
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.left-nav {
+    display: flex;
+    width: 12%;
+    justify-content: flex-start;
+}
+
+.right-nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 88%;
+}
+
+    .right-nav > * {
+        margin-left: 2.5rem;
+    }
+
+.home,
+.play,
+.rankings,
+.login,
+.logout,
+.faq {
+    display: flex;
+}
+
+.img {
+    height: 1.75rem;
+    max-width: 1.75rem;
+}
+
+.grow {
+    transition: .2s;
+}
+
+    .grow:hover {
+        transform: scale(1.25);
+    }
