@@ -6,23 +6,7 @@
     <span class="bg-animate2"></span>
     <div class="form-box login">
         <h2 class="animation" style="--i:0; --j:12">Login</h2>
-        <form method="post" asp-page-handler="Login">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div class="input-box animation" style="--i:1; --j:13">
-                <input asp-for="LoginInput.Email" aria-required="true" required />
-                <label asp-for="LoginInput.Email">Email</label>
-                <span asp-asp-validation-for="LoginInput.Email"></span>
-            </div>
-            <div class="input-box animation" style="--i:2; --j:14">
-                <input asp-for="LoginInput.Password" aria-required="true" type="password" required />
-                <label asp-for="LoginInput.Password">Password</label>
-                <span asp-asp-validation-for="LoginInput.Password"></span>
-            </div>
-            <button id="login-submit" type="submit" class="btn animation" style="--i:3; --j:15">Login</button>
-            <div class="logreg-link animation" style="--i:3.5; --j:16">
-                <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
-            </div>
-        </form>
+        <partial name="_LoginPartial" model="new LoginRegisterModel.LoginInputModel()" />
     </div>
     <div class="info-text login">
         <h2 class="animation" style="--i:0; --j:10;">Welcome Back!</h2>
@@ -31,28 +15,7 @@
 
     <div class="form-box register">
         <h2 class="animation" style="--i:17; --j:0;">Register</h2>
-        <form method="post" asp-page-handler="Register">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div class="input-box animation" style="--i:18; --j:1;">
-                <input asp-for="RegisterInput.Name" aria-required="true" required />
-                <label asp-for="RegisterInput.Name">Username</label>
-                <span asp-asp-validation-for="RegisterInput.Name"></span>
-            </div>
-            <div class="input-box animation" style="--i:19; --j:2;">
-                <input asp-for="RegisterInput.Email" aria-required="true" required />
-                <label asp-for="RegisterInput.Email">Email</label>
-                <span asp-asp-validation-for="RegisterInput.Email"></span>
-            </div>
-            <div class="input-box animation" style="--i:20; --j:3;">
-                <input asp-for="RegisterInput.Password" aria-required="true" type="password" required />
-                <label asp-for="RegisterInput.Password">Password</label>
-                <span asp-asp-validation-for="RegisterInput.Password"></span>
-            </div>
-            <button id="login-submit" type="submit" class="btn animation" style="--i:21; --j:4;">Register</button>
-            <div class="logreg-link animation" style="--i:22; --j:5;">
-                <p>Already have an account? <a href="#" class="login-link">Login</a></p>
-            </div>
-        </form>
+        <partial name="_RegisterPartial" model="new LoginRegisterModel.RegisterInputModel()" />    
     </div>
     <div class="info-text register">
         <h2 class="animation" style="--i:12; --j:2;">bowd&#183ler&#183ize</h2>

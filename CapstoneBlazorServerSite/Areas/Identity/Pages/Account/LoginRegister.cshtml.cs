@@ -22,10 +22,9 @@ namespace CapstoneBlazorServerSite.Areas.Identity.Pages.Account
             _db = db;
         }
 
-        [BindProperty]
+        
         public RegisterInputModel RegisterInput { get; set; }
 
-        [BindProperty]
         public LoginInputModel LoginInput { get; set; }
 
         public string ReturnUrl { get; set; }
@@ -35,17 +34,17 @@ namespace CapstoneBlazorServerSite.Areas.Identity.Pages.Account
             ReturnUrl = Url.Content("~/");
         }
 
-        public async Task<IActionResult> OnPostRegisterAsync()
+        public async Task<IActionResult> OnPostRegisterAsync(RegisterInputModel model)
         {
             ReturnUrl = Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var identity = new ApplicationUser { UserName = RegisterInput.Name, Email = RegisterInput.Email };
-                var result = await _userManager.CreateAsync(identity, RegisterInput.Password);
+                var identity = new ApplicationUser { UserName = model.Name, Email = model.Email };
+                var result = await _userManager.CreateAsync(identity, model.Password);
 
                 if (result.Succeeded)
                 {
-                    _db.CareerStats.Add(new CareerStats { PlayerName = RegisterInput.Name, PlayerId = identity.Id });
+                    _db.CareerStats.Add(new CareerStats { PlayerName = model.Name, PlayerId = identity.Id });
                     _db.SaveChanges();
                     await _signInManager.SignInAsync(identity, isPersistent: false);
                     return LocalRedirect(ReturnUrl);
@@ -55,20 +54,20 @@ namespace CapstoneBlazorServerSite.Areas.Identity.Pages.Account
             return Page();
         }
 
-        public async Task<IActionResult> OnPostLoginAsync()
+        public async Task<IActionResult> OnPostLoginAsync(LoginInputModel model)
         {
             ReturnUrl = Url.Content("~/");
 
-            if (ModelState.GetFieldValidationState("Email") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Valid)
+            if (ModelState.IsValid)
             {
-                ApplicationUser? user = await _userManager.FindByEmailAsync(LoginInput.Email);
+                ApplicationUser? user = await _userManager.FindByEmailAsync(model.Email);
                 if (user == null)
                 {
                     return Page();
                 }
                 else
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user.UserName, LoginInput.Password, isPersistent: false, lockoutOnFailure: false);
+                    var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, isPersistent: false, lockoutOnFailure: false);
                     if (result.Succeeded) return LocalRedirect(ReturnUrl);
                 }
 

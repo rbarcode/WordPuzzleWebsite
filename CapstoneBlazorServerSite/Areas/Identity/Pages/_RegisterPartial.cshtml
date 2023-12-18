@@ -1,0 +1,24 @@
+﻿@model CapstoneBlazorServerSite.Areas.Identity.Pages.Account.LoginRegisterModel.RegisterInputModel
+
+<form method="post" asp-page-handler="Register">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="input-box animation" style="--i:18; --j:1;">
+        <input asp-for="Name" aria-required="true" required />
+        <label asp-for="Name">Username</label>
+        <span asp-asp-validation-for="Name"></span>
+    </div>
+    <div class="input-box animation" style="--i:19; --j:2;">
+        <input asp-for="Email" aria-required="true" required />
+        <label asp-for="Email">Email</label>
+        <span asp-asp-validation-for="Email"></span>
+    </div>
+    <div class="input-box animation" style="--i:20; --j:3;">
+        <input asp-for="Password" aria-required="true" type="password" required />
+        <label asp-for="Password">Password</label>
+        <span asp-asp-validation-for="Password"></span>
+    </div>
+    <button id="login-submit" type="submit" class="btn animation" style="--i:21; --j:4;">Register</button>
+    <div class="logreg-link animation" style="--i:22; --j:5;">
+        <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+    </div>
+</form>
