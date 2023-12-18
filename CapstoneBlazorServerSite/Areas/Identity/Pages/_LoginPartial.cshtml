@@ -1,5 +1,7 @@
 ﻿@model CapstoneBlazorServerSite.Areas.Identity.Pages.Account.LoginRegisterModel.LoginInputModel
 
+<link rel="stylesheet" href="~/@(nameof(CapstoneBlazorServerSite)).styles.css" />
+
 <form method="post" asp-page-handler="Login">
     <div asp-validation-summary="ModelOnly"></div>
     <div class="input-box animation" style="--i:1; --j:13">
