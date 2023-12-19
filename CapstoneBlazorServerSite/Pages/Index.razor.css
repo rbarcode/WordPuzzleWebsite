@@ -1,0 +1,50 @@
+﻿.viewport-wrapper {
+    background-color: rgb(36, 36, 36);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.viewport-flex-container {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-width: 71.111rem;
+    min-height: 40rem;
+    aspect-ratio: 16 / 9;
+}
+
+    .viewport-flex-container.parallax {
+        position: relative;
+        background-image: url("images/website-assets/SplashPageBackground-Shallow.png"), url("images/website-assets/SplashPageBackground-Mid.png"), url("images/website-assets/SplashPageBackground-Deep.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 90%;
+    }
+
+.splash-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+.center-container {
+    height: 100%;
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.component-wrapper {
+    position: relative;
+    height: 90%;
+    aspect-ratio: 1 / 2;
+    /* border: 2px dashed blue; */
+}

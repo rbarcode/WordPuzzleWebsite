@@ -1,11 +1,26 @@
 ﻿@page "/"
+@using CapstoneBlazorServerSite.Components
 
-<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+<div class="viewport-wrapper">
+    <div class="viewport-flex-container parallax">
+        <div class="splash-container">
+            <div class="center-container">
+                <div class="component-wrapper">
+
+                    <MainMenuComponent />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
     <Authorized>
         <h1>Hello, world!</h1>
     </Authorized>
     <NotAuthorized>
         <h1>Please Register for an Account</h1>
     </NotAuthorized>
-</Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+</Microsoft.AspNetCore.Components.Authorization.AuthorizeView> *@
 
