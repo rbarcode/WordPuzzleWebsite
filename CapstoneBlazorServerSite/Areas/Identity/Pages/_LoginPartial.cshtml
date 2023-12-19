@@ -2,20 +2,70 @@
 
 <link rel="stylesheet" href="~/@(nameof(CapstoneBlazorServerSite)).styles.css" />
 
-<form method="post" asp-page-handler="Login">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div class="input-box animation" style="--i:1; --j:13">
-        <input asp-for="Email" aria-required="true" required />
-        <label asp-for="Email">Email</label>
-        <span asp-asp-validation-for="Email"></span>
-    </div>
-    <div class="input-box animation" style="--i:2; --j:14">
-        <input asp-for="Password" aria-required="true" type="password" required />
-        <label asp-for="Password">Password</label>
-        <span asp-asp-validation-for="Password"></span>
-    </div>
-    <button id="login-submit" type="submit" class="btn animation" style="--i:3; --j:15">Login</button>
-    <div class="logreg-link animation" style="--i:3.5; --j:16">
-        <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
-    </div>
-</form>
+@* CSS isolation only applies to HTML tags and not helper tags *@
+@* CSS code moved directly to CSHTML to avoid isolation *@
+
+<style>
+    .form-box .input-box {
+        position: relative;
+        width: 100%;
+        height: 2.75rem;
+        margin: 1.25rem 0;
+    }
+
+    .input-box input {
+        width: 100%;
+        height: 2.75rem;
+        background: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid #fff;
+        padding-right: 23px;
+        font-size: 1rem;
+        color: #fff;
+        transition: .5s;
+    }
+
+        .input-box input:focus,
+        .input-box input:valid {
+            border-bottom-color: #9d00ff;
+        }
+
+    .input-box label {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        color: #fff;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label {
+        top: -5px;
+        color: #0ef;
+    }
+</style>
+
+<div class="form-box login">
+    <h2 class="animation" style="--i:0; --j:12">Login</h2>
+    <form method="post" asp-page-handler="Login">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="input-box animation" style="--i:1; --j:13">
+            <input asp-for="Email" aria-required="true" required />
+            <label asp-for="Email">Email</label>
+            <span asp-asp-validation-for="Email"></span>
+        </div>
+        <div class="input-box animation" style="--i:2; --j:14">
+            <input asp-for="Password" aria-required="true" type="password" required />
+            <label asp-for="Password">Password</label>
+            <span asp-asp-validation-for="Password"></span>
+        </div>
+        <button id="login-submit" type="submit" class="btn animation" style="--i:3; --j:15">Login</button>
+        <div class="logreg-link animation" style="--i:3.5; --j:16">
+            <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+        </div>
+    </form>
+</div>

@@ -32,6 +32,8 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        /*For Debugging Purposes*/
+        /*background-color: green;*/
     }
 
         .wrapper .form-box.login {
@@ -85,7 +87,10 @@ body {
     text-align: center;
 }
 
-.form-box .input-box {
+/*CSS isolation only applies to HTML tags and not helper tags*/
+/*CSS code moved directly to CSHTML to avoid isolation*/
+
+/*.form-box .input-box {
     position: relative;
     width: 100%;
     height: 2.75rem;
@@ -125,7 +130,7 @@ body {
 .input-box input:valid ~ label {
     top: -5px;
     color: #0ef;
-}
+}*/
 
 .btn {
     position: relative;
