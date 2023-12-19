@@ -9,6 +9,7 @@ namespace CapstoneBlazorServerSite.Pages
         [CascadingParameter]
         private Task<AuthenticationState>? AuthenticationStateTask { get; set; }
 
+
         public bool IsAuthenticated { get; set; }
 
         [Inject]

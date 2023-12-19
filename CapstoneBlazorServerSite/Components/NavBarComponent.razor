@@ -16,38 +16,37 @@
                 <div class="grow"><img src="images/website-assets/Gold-STile-A.png" alt="A" class="img"></div>
                 <div class="grow"><img src="images/website-assets/Gold-STile-Y.png" alt="Y" class="img"></div>
             </a>
-            @if(IsAuthenticated)
-            {
-                <a href="leaderboards" class="rankings">
-                    <div class="grow"><img src="images/website-assets/Gold-STile-R.png" alt="R" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-A.png" alt="A" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-N.png" alt="N" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-K.png" alt="K" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-I.png" alt="I" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-N.png" alt="N" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-G.png" alt="G" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-S.png" alt="S" class="img"></div>
-                </a>
-                <a href="identity/account/logout" class="logout">
-                    <div class="grow"><img src="images/website-assets/Gold-STile-L.png" alt="L" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-O.png" alt="O" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-G.png" alt="G" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-O.png" alt="O" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-U.png" alt="U" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-T.png" alt="T" class="img"></div>
-                </a>
-            }
-            else
-            {
-                <a href="/login" class="login">
-                    <div class="grow"><img src="images/website-assets/Gold-STile-L.png" alt="L" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-O.png" alt="O" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-G.png" alt="G" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-I.png" alt="I" class="img"></div>
-                    <div class="grow"><img src="images/website-assets/Gold-STile-N.png" alt="N" class="img"></div>
-                </a>
-            }
-            
+            <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+                <Authorized>
+                    <a href="leaderboards" class="rankings">
+                        <div class="grow"><img src="images/website-assets/Gold-STile-R.png" alt="R" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-A.png" alt="A" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-N.png" alt="N" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-K.png" alt="K" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-I.png" alt="I" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-N.png" alt="N" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-G.png" alt="G" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-S.png" alt="S" class="img"></div>
+                    </a>
+                    <a href="identity/account/logout" class="logout">
+                        <div class="grow"><img src="images/website-assets/Gold-STile-L.png" alt="L" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-O.png" alt="O" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-G.png" alt="G" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-O.png" alt="O" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-U.png" alt="U" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-T.png" alt="T" class="img"></div>
+                    </a>
+                </Authorized>
+                <NotAuthorized>             
+                    <a href="/login" class="login">
+                        <div class="grow"><img src="images/website-assets/Gold-STile-L.png" alt="L" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-O.png" alt="O" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-G.png" alt="G" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-I.png" alt="I" class="img"></div>
+                        <div class="grow"><img src="images/website-assets/Gold-STile-N.png" alt="N" class="img"></div>
+                    </a>
+                </NotAuthorized>
+            </Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
             <a href="/faq" class="faq">
                 <div class="grow"><img src="images/website-assets/Gold-STile-F.png" alt="F" class="img"></div>
                 <div class="grow"><img src="images/website-assets/Gold-STile-A.png" alt="A" class="img"></div>
