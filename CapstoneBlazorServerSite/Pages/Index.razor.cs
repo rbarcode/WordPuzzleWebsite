@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 
 namespace CapstoneBlazorServerSite.Pages
 {
-    public partial class Index : IAsyncDisposable
+    public partial class Index
     {
 
         [Inject]
         IJSRuntime JS {  get; set; }
         
-        private IJSObjectReference module;
+        private IJSObjectReference? module;
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
@@ -24,7 +23,7 @@ namespace CapstoneBlazorServerSite.Pages
             if(module != null)
             {
                 await module.DisposeAsync();
-                Console.WriteLine("splashPageListener disposed!");
+                Console.WriteLine("This is the JS object: " + module);
             }
             
         }
