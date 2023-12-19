@@ -15,7 +15,6 @@ namespace CapstoneBlazorServerSite.Pages
         {
             module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/splashPageListener.js");
             await module.InvokeVoidAsync("initializeSplashPageListener");
-            Console.WriteLine("splashPageListener loaded!");
         }
 
         public async ValueTask DisposeAsync() 
@@ -23,10 +22,12 @@ namespace CapstoneBlazorServerSite.Pages
             if(module != null)
             {
                 await module.DisposeAsync();
-                Console.WriteLine("This is the JS object: " + module);
+                module = null;
             }
             
         }
+
+        
 
     }    
 }
