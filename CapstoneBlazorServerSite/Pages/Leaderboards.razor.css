@@ -1,6 +1,9 @@
-﻿body {
+﻿.pseudo-body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
     background-color: rgb(36, 36, 36);
-    color: white;
 }
 
 .sub-header-viewport-flex-container {

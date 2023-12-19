@@ -3,42 +3,43 @@
 
 <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
     <Authorized>
-        <body>
-            <NavBarComponent IsAuthenticated="true"/>
-            <div class="sub-header-viewport-flex-container">
-                <div class="sub-header-viewport-container">
-                    <div class="leaderboards-title">Leaderboards</div>
-                    <div class="stats-and-rankings">
-                        <div>
-                            <div class="player-stats-container">
-                                <div class="player-name">@UserName</div>
-                                <div class="scores-container">
-                                    <div class="score-titles">
-                                        <div>High Score: </div>
-                                        <div>Points Per Minute: </div>
-                                        <div>Points Per Word: </div>
+       
+            <div class="pseudo-body">
+                <NavBarComponent IsAuthenticated="true" />
+                <div class="sub-header-viewport-flex-container">
+                    <div class="sub-header-viewport-container">
+                        <div class="leaderboards-title">Leaderboards</div>
+                        <div class="stats-and-rankings">
+                            <div>
+                                <div class="player-stats-container">
+                                    <div class="player-name">@UserName</div>
+                                    <div class="scores-container">
+                                        <div class="score-titles">
+                                            <div>High Score: </div>
+                                            <div>Points Per Minute: </div>
+                                            <div>Points Per Word: </div>
+                                        </div>
+                                        <div class="score-values">
+                                            <div>@UserHighScore</div>
+                                            <div>@UserPointsPerMinute</div>
+                                            <div>@UserPointsPerWord</div>
+                                        </div>
                                     </div>
-                                    <div class="score-values">
-                                        <div>@UserHighScore</div>
-                                        <div>@UserPointsPerMinute</div>
-                                        <div>@UserPointsPerWord</div>
+                                    <div class="legend">
+                                        <div>LEGEND:</div>
+                                        <div class="legend-example-column"></div>
+                                        <div>indicates your relative position in the total score distribution</div>
                                     </div>
-                                </div>
-                                <div class="legend">
-                                    <div>LEGEND:</div>
-                                    <div class="legend-example-column"></div>
-                                    <div>indicates your relative position in the total score distribution</div>
                                 </div>
                             </div>
+                            <div><RankingsComponent Title="High Score" PlayerNames="PlayerNamesHS" PlayerHighScores="HighScores" IsHighScore="true" FrequencyHistogramData="FrequencyHistogramHS" UserHighScore="UserHighScore" UserInterval="UserHighScoreInterval" MinScoreHS="MinHighScore" MaxScoreHS="MaxHighScore" /></div>
+                            <div><RankingsComponent Title="Points Per Minute" PlayerNames="PlayerNamesPPM" PlayerPointsPerMetric="PointsPerMinutes" IsHighScore="false" FrequencyHistogramData="FrequencyHistogramPPM" UserPointsPerMinute="UserPointsPerMinute" UserInterval="UserPointsPerMinuteInterval" MinScorePPX="MinPointsPerMinute" MaxScorePPX="MaxPointsPerMinute" /></div>
+                            <div><RankingsComponent Title="Points Per Word" PlayerNames="PlayerNamesPPW" PlayerPointsPerMetric="PointsPerWords" IsHighScore="false" FrequencyHistogramData="FrequencyHistogramPPW" UserPointsPerWord="UserPointsPerWord" UserInterval="UserPointsPerWordInterval" MinScorePPX="MinPointsPerWord" MaxScorePPX="MaxPointsPerWord" /></div>
                         </div>
-                        <div><RankingsComponent Title="High Score" PlayerNames="PlayerNamesHS" PlayerHighScores="HighScores" IsHighScore="true" FrequencyHistogramData="FrequencyHistogramHS" UserHighScore="UserHighScore" UserInterval="UserHighScoreInterval" MinScoreHS="MinHighScore" MaxScoreHS="MaxHighScore" /></div>
-                        <div><RankingsComponent Title="Points Per Minute" PlayerNames="PlayerNamesPPM" PlayerPointsPerMetric="PointsPerMinutes" IsHighScore="false" FrequencyHistogramData="FrequencyHistogramPPM" UserPointsPerMinute="UserPointsPerMinute" UserInterval="UserPointsPerMinuteInterval" MinScorePPX="MinPointsPerMinute" MaxScorePPX="MaxPointsPerMinute" /></div>
-                        <div><RankingsComponent Title="Points Per Word" PlayerNames="PlayerNamesPPW" PlayerPointsPerMetric="PointsPerWords" IsHighScore="false" FrequencyHistogramData="FrequencyHistogramPPW" UserPointsPerWord="UserPointsPerWord" UserInterval="UserPointsPerWordInterval" MinScorePPX="MinPointsPerWord" MaxScorePPX="MaxPointsPerWord" /></div>
                     </div>
                 </div>
-            </div>
-            
-        </body>
+            </div>                        
+      
         
     </Authorized>
     <NotAuthorized>
