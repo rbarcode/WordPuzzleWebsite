@@ -90,6 +90,18 @@ namespace CapstoneBlazorServerSite.Pages
                                             .Take(10)
                                             .ToList();
 
+            MinHighScore = DataContext.CareerStats.Where(cs => cs.HighScore > 0).Min(cs => cs.HighScore);
+
+            MaxHighScore = DataContext.CareerStats.Max(cs => cs.HighScore);
+
+            MinPointsPerWord = DataContext.CareerStats.Where(cs => cs.CareerPointsPerWord > 0).Min(cs => cs.CareerPointsPerWord);
+
+            MaxPointsPerWord = DataContext.CareerStats.Max(cs => cs.CareerPointsPerWord);
+
+            MinPointsPerMinute = DataContext.CareerStats.Where(cs => cs.CareerPointsPerMinute > 0).Min(cs => cs.CareerPointsPerMinute);
+
+            MaxPointsPerMinute = DataContext.CareerStats.Max(cs => cs.CareerPointsPerMinute);
+
             FrequencyHistogramHS = CalculateHistogramHighScore(DataContext.CareerStats.Max(cs => cs.HighScore), DataContext.CareerStats.Where(cs => cs.HighScore > 0).Min(cs => cs.HighScore), DataContext.CareerStats.OrderByDescending(cs => cs.HighScore).Select(cs => cs.HighScore).ToList());
 
             FrequencyHistogramPPW = CalculateHistogramOtherMetric(DataContext.CareerStats.Max(cs => cs.CareerPointsPerWord), DataContext.CareerStats.Where(cs => cs.CareerPointsPerWord > 0).Min(cs => cs.CareerPointsPerWord), DataContext.CareerStats.OrderByDescending(cs => cs.CareerPointsPerWord).Select(cs => cs.CareerPointsPerWord).ToList());
@@ -112,23 +124,11 @@ namespace CapstoneBlazorServerSite.Pages
                                             .Select(cs => cs.CareerPointsPerMinute)
                                             .FirstOrDefault();
 
-            UserHighScoreInterval = CalcUserHighScoreInterval(UserHighScore, DataContext.CareerStats.Max(cs => cs.HighScore));
+            UserHighScoreInterval = CalcUserHighScoreInterval(UserHighScore, MaxHighScore, MinHighScore);
 
-            UserPointsPerWordInterval = CalcUserPPWInterval(UserPointsPerWord, DataContext.CareerStats.Max(cs => cs.CareerPointsPerWord));
+            UserPointsPerWordInterval = CalcUserPPWInterval(UserPointsPerWord, MaxPointsPerWord, MinPointsPerWord);
 
-            UserPointsPerMinuteInterval = CalcUserPPMInterval(UserPointsPerMinute, DataContext.CareerStats.Max(cs => cs.CareerPointsPerMinute));
-
-            MinHighScore = DataContext.CareerStats.Where(cs => cs.HighScore > 0).Min(cs => cs.HighScore);
-
-            MaxHighScore = DataContext.CareerStats.Max(cs => cs.HighScore);
-
-            MinPointsPerWord = DataContext.CareerStats.Where(cs => cs.CareerPointsPerWord > 0).Min(cs => cs.CareerPointsPerWord);
-
-            MaxPointsPerWord = DataContext.CareerStats.Max(cs => cs.CareerPointsPerWord);
-
-            MinPointsPerMinute = DataContext.CareerStats.Where(cs => cs.CareerPointsPerMinute > 0).Min(cs => cs.CareerPointsPerMinute);
-
-            MaxPointsPerMinute = DataContext.CareerStats.Max(cs => cs.CareerPointsPerMinute);
+            UserPointsPerMinuteInterval = CalcUserPPMInterval(UserPointsPerMinute, MaxPointsPerMinute, MinPointsPerMinute);
         }
 
         private async Task<string> GetUserId()
@@ -145,7 +145,7 @@ namespace CapstoneBlazorServerSite.Pages
             return userName;
         }
 
-        //Determines frequency of scores that fall in each of the 10 intervals between the max score and 1
+        //Determines frequency of scores that fall in each of the 10 intervals between the max score and minimum non-zero score
         private static List<byte> CalculateHistogramHighScore(uint maxScore, uint minNonZeroScore, List<uint> hs)
         {
             List<byte> result = new();
@@ -166,7 +166,7 @@ namespace CapstoneBlazorServerSite.Pages
             return result;
         }
 
-        //Determines frequency of scores that fall in each of the 10 intervals between the max score and 1
+        //Determines frequency of scores that fall in each of the 10 intervals between the max score and minimum non-zero score
         private static List<byte> CalculateHistogramOtherMetric(double maxScore, double minNonZeroScore, List<double> ppwm)
         {
             List<byte> result = new();
@@ -186,70 +186,87 @@ namespace CapstoneBlazorServerSite.Pages
             return result;
         }
 
-        //Determines in which histogram interval (0 - 9) the player falls (or returns -1 if player has no score)
-        private static sbyte CalcUserHighScoreInterval(uint userHS, uint maxScore)
+        //Determines in which histogram interval (0 - 9) the player falls (or returns -1 if player score is 0)
+        private static sbyte CalcUserHighScoreInterval(uint userHS, uint maxScore, uint minNonZeroScore)
         {
             sbyte userInterval = -1;
-            double interval = maxScore / 10;
-            double intervalMinScore = 0;
+            double numOfColumns = 10;
+            double range = maxScore - (minNonZeroScore - 1);
+            double interval = range / numOfColumns;
+            double intervalMinScore = minNonZeroScore;
 
-            if (userHS > 0)
+            if (userHS == minNonZeroScore)
+            {
+                userInterval = 0;
+            }
+            else if (userHS > minNonZeroScore)
             {
                 for (sbyte i = 0; i < 10; i++)
                 {
                     if (userHS > intervalMinScore && userHS <= (intervalMinScore + interval))
                     {
-                        userInterval = i;
-                        intervalMinScore += interval;
+                        userInterval = i;                        
                     }
+                    intervalMinScore += interval;
                 }
             }
 
             return userInterval;
         }
 
-        //Determines in which histogram interval (0 - 9) the player falls (or returns -1 if player has no score)
-        private static sbyte CalcUserPPWInterval(double userPPW, double maxScore)
+        //Determines in which histogram interval (0 - 9) the player falls (or returns -1 if player score is 0)
+        private static sbyte CalcUserPPWInterval(double userPPW, double maxScore, double minNonZeroScore)
         {
             sbyte userInterval = -1;
-            double interval = maxScore / 10;
-            double intervalMinScore = 0;
+            double numOfColumns = 10;
+            double range = maxScore - (minNonZeroScore - 0.1);            
+            double interval = range / numOfColumns;
+            double intervalMinScore = minNonZeroScore;
 
-            if (userPPW > 0)
+            if (userPPW == minNonZeroScore)
+            {
+                userInterval = 0;
+            }
+            else if (userPPW > minNonZeroScore)
             {
                 for (sbyte i = 0; i < 10; i++)
                 {
                     if (userPPW > intervalMinScore && userPPW <= (intervalMinScore + interval))
                     {
-                        userInterval = i;
-                        intervalMinScore += interval;
+                        userInterval = i;                       
                     }
+                    intervalMinScore += interval;
                 }
             }
 
             return userInterval;
         }
 
-        //Determines in which histogram interval (0 - 9) the player falls (or returns -1 if player has no score)
-        private static sbyte CalcUserPPMInterval(double userPPM, double maxScore)
+        //Determines in which histogram interval (0 - 9) the player falls (or returns -1 if player score is 0)
+        private static sbyte CalcUserPPMInterval(double userPPM, double maxScore, double minNonZeroScore)
         {
             sbyte userInterval = -1;
-            double interval = maxScore / 10;
-            double intervalMinScore = 0;
+            double numOfColumns = 10;
+            double range = maxScore - (minNonZeroScore - 0.1);            
+            double interval = range / numOfColumns;
+            double intervalMinScore = minNonZeroScore;
 
-            if (userPPM > 0)
+            if (userPPM == minNonZeroScore)
+            {
+                userInterval = 0;
+            }
+            else if (userPPM > minNonZeroScore)
             {
                 for (sbyte i = 0; i < 10; i++)
                 {
                     if (userPPM > intervalMinScore && userPPM <= (intervalMinScore + interval))
                     {
                         userInterval = i;
-                        intervalMinScore += interval;
                     }
+                    intervalMinScore += interval;
                 }
             }
 
-            Console.WriteLine(userInterval);
             return userInterval;
         }
     }
