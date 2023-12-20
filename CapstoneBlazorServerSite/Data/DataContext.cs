@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using CapstoneBlazorServerSite.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace CapstoneBlazorServerSite.Data
 {
@@ -25,8 +26,19 @@ namespace CapstoneBlazorServerSite.Data
                     new CareerStats { PlayerId = "vwx456", PlayerName = "Player H", HighScore = 592, CareerScore = 4165, CareerNumberOfWords = 642, CareerPointsPerWord = 6.488, CareerMinutesPlayed = 552.206, CareerPointsPerMinute = 7.542},
                     new CareerStats { PlayerId = "yza789", PlayerName = "Player I", HighScore = 93, CareerScore = 756, CareerNumberOfWords = 194, CareerPointsPerWord = 3.897, CareerMinutesPlayed = 112.983, CareerPointsPerMinute = 6.6913},
                     new CareerStats { PlayerId = "bcd098", PlayerName = "Player J", HighScore = 832, CareerScore = 7425, CareerNumberOfWords = 775, CareerPointsPerWord = 9.581, CareerMinutesPlayed = 663.72, CareerPointsPerMinute = 11.1869},
-                    new CareerStats { PlayerId = "efg765", PlayerName = "Player K", HighScore = 158, CareerScore = 8868, CareerNumberOfWords = 2716, CareerPointsPerWord = 3.265, CareerMinutesPlayed = 1025.91, CareerPointsPerMinute = 8.644}
+                    new CareerStats { PlayerId = "efg765", PlayerName = "Player K", HighScore = 158, CareerScore = 8868, CareerNumberOfWords = 2716, CareerPointsPerWord = 3.265, CareerMinutesPlayed = 1025.91, CareerPointsPerMinute = 8.644},
+                    new CareerStats { PlayerId = "hij432", PlayerName = "AlphaOmega", HighScore = 313, CareerScore = 3199, CareerNumberOfWords = 419, CareerPointsPerWord = 7.635, CareerMinutesPlayed = 372, CareerPointsPerMinute = 8.599},
+                    new CareerStats { PlayerId = "klm123", PlayerName = "Player L", HighScore = 71, CareerScore = 698, CareerNumberOfWords = 175, CareerPointsPerWord = 3.989, CareerMinutesPlayed = 100, CareerPointsPerMinute = 6.98},
+                    new CareerStats { PlayerId = "nop456", PlayerName = "Player M", HighScore = 100, CareerScore = 800, CareerNumberOfWords = 250, CareerPointsPerWord = 3.2, CareerMinutesPlayed = 200, CareerPointsPerMinute = 4}
                 );
+
+            PasswordHasher<IdentityUser> hasher = new();
+
+            builder.Entity<ApplicationUser>()
+              .HasData(
+                new ApplicationUser { Id = "hij432", UserName = "AlphaOmega", NormalizedUserName = "ALPHAOMEGA", Email = "ao@ao.com", NormalizedEmail = "AO@AO.COM", PasswordHash = hasher.HashPassword(null, "infinity") }
+              );
+
             base.OnModelCreating(builder);
         }
 
