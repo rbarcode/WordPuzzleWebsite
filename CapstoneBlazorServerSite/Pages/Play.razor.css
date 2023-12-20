@@ -13,12 +13,16 @@
 }
 
 .background-image {
-    width: 100%;
-    height: 96.65%;    
+
+    width: 100%; 
+    height: 100%;    
+  
+
     background-image: url("images/website-assets/GamePageDemoScreen.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position-x: center;
+    background-position-y: bottom;
 /*    border: 2px dashed yellow;*/
     align-self: stretch;
 }
