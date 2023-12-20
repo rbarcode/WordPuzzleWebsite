@@ -249,6 +249,7 @@ namespace CapstoneBlazorServerSite.Pages
                 }
             }
 
+            Console.WriteLine(userInterval);
             return userInterval;
         }
     }

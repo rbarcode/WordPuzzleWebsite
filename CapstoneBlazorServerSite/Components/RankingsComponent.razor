@@ -8,11 +8,11 @@
             {
                 if (UserInterval == i)
                 {
-                    <div style="height: @(FrequencyHistogramData[i])%; background-color: #ffaa1c"></div>
+                    <div style="height: @(FrequencyHistogramData[i] * 1.5)%; background-color: #ffaa1c"></div>
                 }
                 else
                 {
-                    <div style="height: @(FrequencyHistogramData[i])%;"></div>
+                    <div style="height: @(FrequencyHistogramData[i] * 1.5)%;"></div>
                 }
             }
         </div>
