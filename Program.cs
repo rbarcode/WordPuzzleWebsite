@@ -30,6 +30,9 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>( options =>
 })
                 .AddEntityFrameworkStores<DataContext>();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8081";
+builder.WebHost.UseUrls($"http://*:{port}");
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

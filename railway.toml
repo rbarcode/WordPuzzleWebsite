@@ -1,0 +1,7 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "./Dockerfile"
+
+[deploy]
+startCommand = "dotnet CapstoneBlazorServerSite.dll"
+restartPolicyType = "never"
