@@ -12,9 +12,9 @@ builder.Services.AddDbContext<DataContext>(
                 options => options
                 .UseMySql(
                     builder.Configuration
-                    ["ConnectionStrings:DefaultConnection"],
+                    ["ConnectionStrings:RailwayConnection"],
                     ServerVersion.AutoDetect(builder.Configuration
-                    ["ConnectionStrings:DefaultConnection"]
+                    ["ConnectionStrings:RailwayConnection"]
                     )
                 )
             );
