@@ -12,7 +12,6 @@
     * <a href="#prerequisites">Prerequisites</a>
     * <a href="#setup-and-use">Setup and Use</a>
 * <a href="#auxiliary-information">Auxiliary Information</a>
-    * <a href="#research-&-planning-log">Research & Planning Log</a>   
     * <a href="#license">License</a>  
 ------------------------------
 
@@ -142,51 +141,6 @@ An ASP.NET Blazor Server website for a word puzzle game (***not*** included). De
 
 ------------------------------
 ## Auxiliary Information  
-
-### Research & Planning Log
-
-#### <u>Friday 12/1</u>
-
-* **8:15am:** Start tutorial on using HttpContext in Blazor Server:  
-[Using the HttpContext in Blazor Server the right way](https://www.youtube.com/watch?v=Eh4xPgP5PsM)
-
-* **9:15am:** Start researching Blazor Server project architecture (example GitHub repositories, etc.):  
-https://github.com/AdrienTorris/awesome-blazor#sample-projects  
-https://github.com/dotnet/blazor-samples
-
-* **10:00am:** Start watching tutorial on implementing authentication in Blazor Server from scratch  
-[How to implement authentication in Blazor Server from scratch](https://www.youtube.com/watch?v=LBByZRhyZ8U ) 
-
-* **1:00pm:** Return from lunch and start working on adding authentication to Blazor Server app.
-
-#### <u>Friday 12/8</u>  
-* **8:05am:** Start researching leaderboard database/table architecture.  
-
-* **8:45am:** Start researching charts in Blazor.  
-
-* **9:30am:** Continue researching charts in Blazor, including watching some tutorials.  
-[Blazor Bar Chart Component](https://www.youtube.com/watch?v=z6AHBFGzqQ0)  
-[Blazor : Pie Chart and Donut Chart Example || MudBlazor](https://www.youtube.com/watch?v=08lN-o7rQgg) 
-
-* **10:15am:** Start reading MudBlazor documentation and continue researching charts in Blazor (and watch more tutorials).  
-https://mudblazor.com/docs/overview  
-https://mudblazor.com/components/barchart#custom-svg-content  
-[Blazor Column Chart Component](https://www.youtube.com/watch?v=aM54Gjn5lIA)  
-
-* **11:00am:** Start designing UI layout for leaderboard page using Affine.  
-
-* **12:00pm:** Break for lunch.  
-
-* **1:00pm:** Start implementing EF Core database logic in project.  
-
-#### <u>Friday 12/15</u>  
-* **8:05am:** Start watching tutorial on UI design for login page.  
-[Login and Registration Form in HTML & CSS](https://www.youtube.com/watch?v=mefhyo7W3nk)  
-
-* **8:40am:** Continue watching tutorial on UI design.  
-
-#### <u>Affiliated Repositories</u>
-* [Login / Register Page UI Mock Up](https://github.com/rbarcode/CapstoneAuthUIMockUp.git)  
 
 ### License  
 
